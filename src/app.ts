@@ -23,7 +23,7 @@ async function jobTarrifs() {
         await wbService.syncTariffs()
         console.log(`${date[0] + " | " + date[1].split(".")[0]}: save wb tariffs in db`)
 
-        // await googleSheetService.syncSheets()
+        // await googleSheetService.syncDailyTariffs()
         // console.log(`${new Date().toISOString()}: load wb tariffs in google sheets`)
     } catch (e) {
         console.log("Error with loading tariffs:\n", e)
