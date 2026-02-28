@@ -19,6 +19,10 @@ const envSchema = z.object({
             .regex(/^[0-9]+$/)
             .transform((value) => parseInt(value)),
     ]),
+    WB_API_TOKEN: z.string(),
+    // GOOGLE_SHEET_IDS: z.string(),
+    // GOOGLE_CLIENT_EMAIL: z.string(),
+    // GOOGLE_PRIVATE_KEY: z.string(),
 });
 
 const env = envSchema.parse({
@@ -29,6 +33,10 @@ const env = envSchema.parse({
     POSTGRES_PASSWORD: process.env.POSTGRES_PASSWORD,
     NODE_ENV: process.env.NODE_ENV,
     APP_PORT: process.env.APP_PORT,
+    WB_API_TOKEN: process.env.WB_API_TOKEN,
+    // GOOGLE_SHEET_IDS: process.env.GOOGLE_SHEET_IDS,
+    // GOOGLE_CLIENT_EMAIL: process.env.GOOGLE_CLIENT_EMAIL,
+    // GOOGLE_PRIVATE_KEY: process.env.GOOGLE_PRIVATE_KEY,
 });
 
 export default env;

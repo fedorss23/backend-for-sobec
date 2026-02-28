@@ -1,6 +1,7 @@
 import env from "#config/env/env.js";
 import { Knex } from "knex";
 import { z } from "zod";
+import { knexSnakeCaseMappers } from "objection";
 
 const connectionSchema = z.object({
     host: z.string(),
@@ -10,6 +11,7 @@ const connectionSchema = z.object({
     password: z.string(),
 });
 
+
 const NODE_ENV = env.NODE_ENV ?? "development";
 
 const knegConfigs: Record<typeof NODE_ENV, Knex.Config> = {
@@ -17,7 +19,7 @@ const knegConfigs: Record<typeof NODE_ENV, Knex.Config> = {
         client: "pg",
         connection: () =>
             connectionSchema.parse({
-                host: env.POSTGRES_HOST ?? "localhost",
+                host: env.POSTGRES_HOST ?? "postgres",
                 port: env.POSTGRES_PORT ?? 5432,
                 database: env.POSTGRES_DB ?? "postgres",
                 user: env.POSTGRES_USER ?? "postgres",
